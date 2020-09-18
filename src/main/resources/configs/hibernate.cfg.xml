@@ -13,5 +13,8 @@
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
 
+        <mapping class="ru.geekbrains.hibernate.m2m.meta.Payer"/>
+        <mapping class="ru.geekbrains.hibernate.m2m.meta.Product"/>
+
     </session-factory>
 </hibernate-configuration>

@@ -11,7 +11,7 @@ CREATE TABLE products
 INSERT INTO products (title, price)
 VALUES ('milk', 79.90),
        ('bread', 24.90),
-       ('butter', 220.00),
+       ('butter', 120.00),
        ('cheese', 350.55),
        ('coca-cola', 69.90),
        ('beer', 75.90);
@@ -36,17 +36,18 @@ CREATE TABLE payers_products
 (
     payer_id   int8 NOT NULL,
     product_id int8 NOT NULL,
+    price numeric(6,2) NOT NULL DEFAULT 0,
     CONSTRAINT payers_prod_payer_fk FOREIGN KEY (payer_id) REFERENCES payers (id),
     CONSTRAINT payers_products_fk FOREIGN KEY (product_id) REFERENCES products (id)
 );
 
-INSERT INTO payers_products (payer_id, product_id)
-VALUES (1, 1),
-       (2, 1),
-       (3, 1),
-       (1, 2),
-       (2, 3),
-       (3, 4),
-       (2, 5);
+INSERT INTO payers_products (payer_id, product_id, price)
+VALUES (1, 1, 70.90),
+       (2, 1, 71.99),
+       (3, 1, 69.90),
+       (1, 2, 25.00),
+       (2, 3, 110.00),
+       (3, 4, 220.0),
+       (2, 5, 90.00);
 
 COMMIT;
